@@ -169,7 +169,7 @@ const hostPage4 = (req, res) => {
         }
 
         // return success
-        return res.render('page2', {
+        return res.render('page4', {
             dogs: docs
         });
     };
