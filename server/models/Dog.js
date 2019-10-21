@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose');
 
 
@@ -9,38 +8,39 @@ let DogModel = {};
 
 
 const DogSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    trim: true,
-    unique: true,
-  },
+    name: {
+        type: String,
+        required: true,
+        trim: true,
+        unique: true,
+    },
 
-  breed: {
-    type: String,
-    required: true,
-    trim: true,
-  },
+    breed: {
+        type: String,
+        required: true,
+        trim: true,
+    },
 
-  age: {
-      type: Number,
-      required: true
-  }
+    age: {
+        type: Number,
+        required: true,
+        trim: true,
+    }
 
 });
 
 
 DogSchema.statics.sayName = (dog) => {
-  console.log(dog.name);
+    console.log(dog.name);
 };
 
 
 DogSchema.statics.findByName = (name, callback) => {
-  const search = {
-    name,
-  };
+    const search = {
+        name,
+    };
 
-  return DogModel.findOne(search, callback);
+    return DogModel.findOne(search, callback);
 };
 
 

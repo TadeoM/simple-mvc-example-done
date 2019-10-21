@@ -16,6 +16,7 @@
     <a href="/">Home</a>
     <a href="/page1">Page 1</a>
     <a href="/page2">Page 2</a>
+    <a href="/page4">Page 4</a>
 
     <form action="/createDog" method="POST">
         <label for="name">Name: </label>
@@ -23,13 +24,25 @@
         <label for="breed">Breed: </label>
         <input type="text" name="breed">
         <label for="age">Age: </label>
-        <input type="number" min="0" max="40" />
+        <input type="number" name="age" min="0" max="40" />
+        <input type="submit" value="submit">
     </form>
 
     <br />
     <br />
 
-    <form action="findByName" method="GET">
+
+    <form action="/updateLastDog" method="POST">
+        <!--<input type="submit" value="Update Last">-->
+        <label for="name">Name to update age:</label>
+        <input type="text" name="name" value="">
+        <input type="submit" value="Update Dog">
+    </form>
+
+    <br />
+    <br />
+
+    <form action="searchDogs" method="GET">
         <label for="name">Name to search for:</label>
         <input type="text" name="name" value="">
         <input type="submit" value="Submit">
