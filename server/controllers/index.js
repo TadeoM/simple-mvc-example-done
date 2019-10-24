@@ -400,6 +400,7 @@ const updateLastCat = (req, res) => {
     savePromise.catch((err) => res.json({
         err
     }));
+    return;
 };
 
 const updateLastDog = (req, res) => {
@@ -410,7 +411,6 @@ const updateLastDog = (req, res) => {
             error: 'Name is required to perform a search'
         });
     }
-    console.dir(req.body.name);
 
     const dogFound = Dog.findByName(req.body.name, (err, doc) => {
         // errs, handle them
@@ -446,7 +446,7 @@ const updateLastDog = (req, res) => {
             age: doc.age,
         });
     });
-
+    return dogFound;
 };
 
 // function to handle a request to any non-real resources (404)
@@ -476,6 +476,8 @@ module.exports = {
     readCat,
     getName,
     setName,
+    readDog,
+    dogFound,
     updateLastCat,
     updateLastDog,
     searchName,
