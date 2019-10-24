@@ -428,7 +428,7 @@ const updateLastDog = (req, res) => {
         }
 
         // doc.age++;
-        updatedDog = doc;
+        let updatedDog = doc;
         updatedDog.age++;
 
         // create a new save promise for the database
