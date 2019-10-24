@@ -432,7 +432,8 @@ const updateLastDog = (req, res) => {
         updatedDog.age++;
 
         // create a new save promise for the database
-        const savePromise = updatedDog.save();
+        updatedDog.save();
+
 
 
         // if a match, send the match back
