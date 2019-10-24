@@ -241,7 +241,6 @@ const setName = (req, res) => {
 };
 
 const createDog = (req, res) => {
-    console.dir(req.body);
     // check if the required fields exist
     // normally you would also perform validation
     // to know if the data they sent you was real
@@ -428,22 +427,19 @@ const updateLastDog = (req, res) => {
             });
         }
 
-        doc.age++;
+        // doc.age++;
+        updatedDog = doc;
+        updatedDog.age++;
 
         // create a new save promise for the database
-        const savePromise = doc.save();
-
-        // if save error, just return an error for now
-        savePromise.catch((err) => res.json({
-            err
-        }));
+        const savePromise = updatedDog.save();
 
 
         // if a match, send the match back
         return res.json({
-            name: doc.name,
-            breed: doc.breed,
-            age: doc.age,
+            name: updatedDog.name,
+            breed: updatedDog.breed,
+            age: updatedDog.age,
         });
     });
     return dogFound;
